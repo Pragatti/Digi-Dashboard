@@ -1,0 +1,301 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  /* max-width: 1440px; */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 1rem 2rem;
+  height: 88px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.logo-container img {
+  height: 32px;
+}
+
+.logo-highlight {
+  color: var(--color-white);
+}
+
+.user-profile {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-white);
+}
+
+.user-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 2rem 2rem 2rem;
+  gap: 1.5rem;
+}
+
+.sidebar {
+  width: 96px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 0;
+  border-radius: 24px;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 20%,
+      rgba(255, 255, 255, 0.02) 80%,
+      rgba(255, 255, 255, 0.08) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    15px 15px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-item.active {
+  color: var(--color-teal);
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+
+.nav-item.active img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(1637%) hue-rotate(113deg) brightness(101%) contrast(106%);
+}
+
+.main-content {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: min-content;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #111a20;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Lights card has strong teal glow on top border */
+.card-glow-top::before {
+  display: none;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-gray);
+}
+
+.card-title img,
+.card-title svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.dropdown-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-gray);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray);
+  cursor: pointer;
+}
+
+.toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-switch.active {
+  background: rgba(63, 253, 224, 0.2);
+}
+
+.toggle-switch .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.toggle-switch.active .knob {
+  left: 22px;
+  background: var(--color-teal);
+}
+
+.lights-card {
+  grid-column: span 1;
+  min-height: 380px;
+  background: radial-gradient(circle at top left, rgba(63, 253, 224, 0.1) 0%, #111a20 60%);
+  border: 1px solid rgba(63, 253, 224, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.water-card {
+  grid-column: span 1;
+  min-height: 380px;
+  justify-content: space-between;
+}
+
+.carbon-card {
+  grid-column: span 1;
+  min-height: 380px;
+}
+
+.energy-card {
+  grid-column: span 1;
+  min-height: 380px;
+}
+
+.footfall-card {
+  grid-column: span 1;
+  min-height: 380px;
+}
+
+@media (min-width: 1200px) {
+  .layout {
+    height: 900px;
+  }
+
+ 
+
+  /* .sidebar {
+    height: 640px;
+    border-radius: 32px;
+  } */
+}
+
+@media (max-width: 1200px) {
+  .layout-body {
+    flex-direction: column;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    padding: 0.75rem 1rem;
+  }
+
+  .main-content {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .energy-card {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.25rem 0.75rem 1.25rem;
+  }
+
+  .layout-body {
+    padding: 0 1rem 1rem 1rem;
+    gap: 1rem;
+  }
+
+  .main-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}
